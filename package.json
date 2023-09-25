@@ -24,13 +24,16 @@
     "format:apply": "prettier --write          \"src/**/*.ts\" .eslintrc.js tsconfig.*json"
   },
   "dependencies": {
+    "dotenv": "^16.3.1",
     "source-map-support": "^0.5.21",
+    "ws": "^8.14.2",
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.5",
     "@types/node": "^18.11.9",
     "@types/source-map-support": "^0.5.7",
+    "@types/ws": "^8.5.5",
     "@types/xml2js": "^0.4.12",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
