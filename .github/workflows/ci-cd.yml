@@ -1,0 +1,30 @@
+name: CI/CD
+run-name: CI/CD
+on: [push]
+jobs:
+  build:
+    name: Build yarn project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/prepare-build
+      - run: yarn build
+  test:
+    name: Test yarn project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/prepare-build
+      - run: yarn test
+  docker-publish:
+    name: Build and publish docker image
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - if: github.event_name == 'push' && (github.event.ref == 'refs/heads/main' || contains(github.event.ref, '/tags/v'))
+        uses: ./.github/docker-publish
+        with:
+          docker_hub_scope: ${{ vars.DOCKER_HUB_SCOPE }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          token: ${{ secrets.DOCKERHUB_TOKEN }}

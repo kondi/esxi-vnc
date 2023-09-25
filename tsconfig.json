@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    // dom to have fetch api. see: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/60924
+    "lib": ["es2022", "dom"],
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "strict": true,
+    "outDir": "./js",
+    "sourceMap": true
+  }
+}

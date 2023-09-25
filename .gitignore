@@ -1,0 +1,24 @@
+# compiled output
+/js
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+*.launch
+.settings/
+
+# misc
+/.env
+/npm-debug.log
+/yarn-error.log
+
+#System Files
+.DS_Store
+Thumbs.db
+
+# vscode local history plugin
+.history

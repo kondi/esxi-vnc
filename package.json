@@ -1,0 +1,56 @@
+{
+  "main": "js/index",
+  "typings": "js/index",
+  "name": "@kondi/esxi-vnc",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kondi/esxi-vnc.git"
+  },
+  "scripts": {
+    "start": "node js/main",
+    "build": "tsc -p .",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:watch": "tsc --watch",
+    "dev:main": "node-dev --respawn --no-notify js/main",
+    "lint": "eslint .eslintrc.js src",
+    "test": "npm-run-all --parallel test:*",
+    "test:lint": "npm run lint",
+    "test:format": "npm run format:check",
+    "test:unit": "jest",
+    "watch:test": "jest --watch",
+    "format:check": "prettier --list-different \"src/**/*.ts\" .eslintrc.js tsconfig.*json",
+    "format:apply": "prettier --write          \"src/**/*.ts\" .eslintrc.js tsconfig.*json"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.21",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.5",
+    "@types/node": "^18.11.9",
+    "@types/source-map-support": "^0.5.7",
+    "@types/xml2js": "^0.4.12",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-class-method-newlines": "^0.0.1",
+    "eslint-plugin-etc": "^2.0.3",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jest": "^27.4.0",
+    "jest": "^29.7.0",
+    "node-dev": "^8.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "roots": [
+      "<rootDir>/src"
+    ]
+  }
+}
